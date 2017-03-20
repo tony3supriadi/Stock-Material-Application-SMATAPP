@@ -13,6 +13,7 @@ Class App extends CI_Controller {
 	public function index() {
 		$data = array(
 			'title' => 'HOME | SMATAPP - STOCK MATERIAL APPLICATION',
+			'navigation' => 'dashboard',
 			'container' => 'pages/home/index'
 		);
 		$this->load->view('/layouts/app', $data);

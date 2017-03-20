@@ -8,6 +8,10 @@
         <link href="<?=base_url('/assets/css/bootstrap.min.css')?>" rel="stylesheet">
         <link href="<?=base_url('/assets/css/datepicker3.css')?>" rel="stylesheet">
         <link href="<?=base_url('/assets/css/styles.css')?>" rel="stylesheet">
+
+        <link href="<?=base_url('/assets/plugins/data-tables/media/css/jquery.dataTables.min.css')?>">
+        <link href="<?=base_url('/assets/plugins/data-tables/media/css/dataTables.bootstrap.min.css')?>">
+        <link href="<?=base_url('/assets/plugins/font-awesome/css/font-awesome.min.css')?>" rel="stylesheet">
         
         <script src="<?=base_url('/assets/js/lumino.glyphs.js')?>"></script>
     </head>
@@ -36,7 +40,7 @@
 
         <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
             <ul class="nav menu">
-                <li class="active">
+                <li class="<?= $navigation == "dashboard" ? 'active' : '' ?>">
                     <a href="<?=site_url()?>">
                         <svg class="glyph stroked dashboard-dial">
                             <use xlink:href="#stroked-dashboard-dial"></use>
@@ -44,14 +48,14 @@
                         DASHBOARD
                     </a>
                 </li>
-                <li class="parent">
+                <li class="parent <?= $navigation == "master" ? 'active' : '' ?>">
                     <a data-toggle="collapse" href="#sub-master-data">
                         <svg class="glyph stroked monitor">
                             <use xlink:href="#stroked-monitor"/>
                         </svg>
                         DATA MASTER
                     </a>
-                    <ul class="children collapse" id="sub-master-data">
+                    <ul class="children collapse <?= $navigation == "master" ? 'in' : '' ?>" id="sub-master-data">
                         <li>
                             <a class="" href="<?=site_url('/material')?>">
                                 <svg class="glyph stroked chevron-right">
@@ -78,7 +82,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="<?= $navigation == "receive" ? 'active' : '' ?>">
                     <a href="<?=site_url('receive')?>">
                         <svg class="glyph stroked arrow down">
                             <use xlink:href="#stroked-arrow-down"/>
@@ -86,7 +90,7 @@
                         RECEIVE
                     </a>
                 </li>
-                <li>
+                <li class="<?= $navigation == "issue" ? 'active' : '' ?>">
                     <a href="<?=site_url('issue')?>">
                         <svg class="glyph stroked arrow up">
                             <use xlink:href="#stroked-arrow-up"/>
@@ -94,14 +98,14 @@
                         ISSUE
                     </a>
                 </li>
-                <li class="parent">
+                <li class="parent <?= $navigation == "report" ? 'active' : '' ?>">
                     <a data-toggle="collapse" href="#sub-laporan-data">
                         <svg class="glyph stroked line-graph">
                             <use xlink:href="#stroked-line-graph"></use>
                         </svg>
                         REPORT
                     </a>
-                    <ul class="children collapse" id="sub-laporan-data">
+                    <ul class="children collapse <?= $navigation == "report" ? 'in' : '' ?>" id="sub-laporan-data">
                         <li>
                             <a class="" href="<?=site_url('/report/stock-material')?>">
                                 <svg class="glyph stroked chevron-right">
@@ -129,13 +133,13 @@
                     </ul>
                 </li>
                 <li role="presentation" class="divider"></li>
-                <li>
+                <li class="<?= $navigation == "users" ? 'active' : '' ?>">
                     <a href="<?=site_url('users')?>">
                         <svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg>
                         USERS
                     </a>
                 </li>
-                <li>
+                <li class="<?= $navigation == "change_password" ? 'active' : '' ?>">
                     <a href="<?=site_url('change-password')?>">
                         <svg class="glyph stroked lock">
                             <use xlink:href="#stroked-lock"/>
@@ -160,10 +164,17 @@
 
         <script src="<?=base_url('/assets/js/jquery-1.11.1.min.js')?>"></script>
         <script src="<?=base_url('/assets/js/bootstrap.min.js')?>"></script>
+        <script src="<?=base_url('/assets/js/bootstrap.min.js')?>"></script>
         <script src="<?=base_url('/assets/js/chart.min.js')?>"></script>
         <script src="<?=base_url('/assets/js/chart-data.js')?>"></script>
         <script src="<?=base_url('/assets/js/bootstrap-datepicker.js')?>"></script>
+
+        <script src="<?=base_url('/assets/plugins/data-tables/media/js/jquery.dataTables.min.js')?>"></script>
+        <script src="<?=base_url('/assets/plugins/data-tables/media/js/dataTables.bootstrap.min.js')?>"></script>
+        
         <script>
+            $('#table_data').DataTable({});
+
             !function($) {
                 $(document).on("click", "ul.nav li.parent > a > span.icon", function() {
                     $(this).find('em:first').toggleClass("glyphicon-minus");
@@ -178,7 +189,9 @@
             $(window).on('resize', function() {
                 if ($(window).width() <= 767)
                     $('#sidebar-collapse').collapse('hide')
-            })
+            });
+            $('.dataTables_filter').attr('class', 'dataTables_filter text-right');
+            $('.dataTables_paginate').attr('class', 'dataTables_paginate paging_simple_numbers text-right');
         </script>	
     </body>
 
