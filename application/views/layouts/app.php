@@ -65,19 +65,19 @@
                             </a>
                         </li>
                         <li>
-                            <a class="" href="<?=site_url('categories')?>">
+                            <a class="" href="<?=site_url('kategori')?>">
                                 <svg class="glyph stroked chevron-right">
                                     <use xlink:href="#stroked-chevron-right"></use>
                                 </svg>
-                                CATEGORIES
+                                KATEGORI
                             </a>
                         </li>
                         <li>
-                            <a class="" href="<?=site_url('unit-name')?>">
+                            <a class="" href="<?=site_url('satuan')?>">
                                 <svg class="glyph stroked chevron-right">
                                     <use xlink:href="#stroked-chevron-right"></use>
                                 </svg>
-                                UNIT NAME
+                                SATUAN
                             </a>
                         </li>
                     </ul>
@@ -98,16 +98,16 @@
                         ISSUE
                     </a>
                 </li>
-                <li class="parent <?= $navigation == "report" ? 'active' : '' ?>">
+                <li class="parent <?= $navigation == "laporan" ? 'active' : '' ?>">
                     <a data-toggle="collapse" href="#sub-laporan-data">
                         <svg class="glyph stroked line-graph">
                             <use xlink:href="#stroked-line-graph"></use>
                         </svg>
-                        REPORT
+                        LAPORAN
                     </a>
-                    <ul class="children collapse <?= $navigation == "report" ? 'in' : '' ?>" id="sub-laporan-data">
+                    <ul class="children collapse <?= $navigation == "laporan" ? 'in' : '' ?>" id="sub-laporan-data">
                         <li>
-                            <a class="" href="<?=site_url('/report/stock-material')?>">
+                            <a class="" href="<?=site_url('/laporan/stok-material')?>">
                                 <svg class="glyph stroked chevron-right">
                                     <use xlink:href="#stroked-chevron-right"></use>
                                 </svg> 
@@ -115,7 +115,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="" href="<?=site_url('/report/receive')?>">
+                            <a class="" href="<?=site_url('/laporan/receive')?>">
                                 <svg class="glyph stroked chevron-right">
                                     <use xlink:href="#stroked-chevron-right"></use>
                                 </svg>
@@ -123,11 +123,19 @@
                             </a>
                         </li>
                         <li>
-                            <a class="" href="<?=site_url('/report/issue')?>">
+                            <a class="" href="<?=site_url('/laporan/issue')?>">
                                 <svg class="glyph stroked chevron-right">
                                     <use xlink:href="#stroked-chevron-right"></use>
                                 </svg>
                                 ISSUE
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="<?=site_url('/laporan/laba')?>">
+                                <svg class="glyph stroked chevron-right">
+                                    <use xlink:href="#stroked-chevron-right"></use>
+                                </svg>
+                                LABA
                             </a>
                         </li>
                     </ul>
@@ -145,6 +153,13 @@
                             <use xlink:href="#stroked-lock"/>
                         </svg>
                         CHANGE PASSWORD
+                    </a>
+                </li>
+                <li role="presentation" class="divider"></li>
+                <li class="<?= $navigation == "logs" ? 'active' : '' ?>">
+                    <a href="<?=site_url('logs')?>">
+                        <svg class="glyph stroked notepad "><use xlink:href="#stroked-notepad"/></svg>
+                        LOGS
                     </a>
                 </li>
                 <li>

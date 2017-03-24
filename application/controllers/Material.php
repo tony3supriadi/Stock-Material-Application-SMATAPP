@@ -4,11 +4,15 @@ Class Material extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+
+        if (!$this->session->userdata('is_login')) {
+            redirect('/login');
+        }
     }
 
     public function index() {
         $data = array(
-			'title' => 'HOME | SMATAPP - STOCK MATERIAL APPLICATION',
+			'title' => 'MATERIAL | SMATAPP - STOCK MATERIAL APPLICATION',
             'navigation' => 'master',
 			'container' => 'pages/material/index'
 		);
@@ -17,7 +21,7 @@ Class Material extends CI_Controller {
 
     public function show($id) {
         $data = array(
-			'title' => 'HOME | SMATAPP - STOCK MATERIAL APPLICATION',
+			'title' => 'MATERIAL | SMATAPP - STOCK MATERIAL APPLICATION',
             'navigation' => 'master',
 			'container' => 'pages/material/show'
 		);
@@ -26,7 +30,7 @@ Class Material extends CI_Controller {
 
     public function add() {
         $data = array(
-			'title' => 'HOME | SMATAPP - STOCK MATERIAL APPLICATION',
+			'title' => 'MATERIAL | SMATAPP - STOCK MATERIAL APPLICATION',
             'navigation' => 'master',
 			'container' => 'pages/material/add'
 		);
@@ -39,7 +43,7 @@ Class Material extends CI_Controller {
 
     public function edit($id) {
         $data = array(
-			'title' => 'HOME | SMATAPP - STOCK MATERIAL APPLICATION',
+			'title' => 'MATERIAL | SMATAPP - STOCK MATERIAL APPLICATION',
             'navigation' => 'master',
 			'container' => 'pages/material/edit'
 		);
@@ -53,7 +57,5 @@ Class Material extends CI_Controller {
     public function delete() {
 
     }
-
-
 
 }
